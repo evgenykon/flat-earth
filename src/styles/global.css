@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-*: initial;
+
+  --color-sand-50: #faf7f0;
+  --color-sand-100: #f6f1e7;
+  --color-sand-200: #ece3d0;
+  --color-sand-300: #ddd0b5;
+  --color-sand-400: #c9b394;
+  --color-sand-500: #b08d57;
+  --color-sand-600: #97713f;
+  --color-sand-700: #7c5c33;
+  --color-sand-800: #4a3a26;
+  --color-sand-900: #2b231a;
+  --color-sand-950: #1c1610;
+
+  --color-clay-300: #d8a97c;
+  --color-clay-400: #c9905c;
+  --color-clay-500: #a9764d;
+  --color-clay-600: #8f5f3d;
+
+  --font-display: Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details[open] > summary .chevron {
+  transform: rotate(90deg);
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.md-content {
+  line-height: 1.7;
+}
+
+.md-content h2,
+.md-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.md-content p {
+  margin-bottom: 0.75rem;
+}
+
+.md-content ul,
+.md-content ol {
+  margin-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.md-content ol {
+  list-style: decimal;
+}
+
+.md-content li {
+  margin-bottom: 0.35rem;
+}
+
+.md-content a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.md-content blockquote {
+  border-left: 3px solid var(--color-sand-400);
+  padding-left: 0.75rem;
+  font-style: italic;
+  margin: 0.75rem 0;
+}
+
+.md-content code {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}

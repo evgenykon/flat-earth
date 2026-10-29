@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Плоская Земля: доводы и контр-доводы">
+  <main class="mx-auto max-w-3xl px-6 py-16">
+    <header class="text-center">
+      <p class="text-sm uppercase tracking-widest text-clay-500">Архив споров</p>
+      <h1 class="mt-2 font-display text-4xl font-bold text-sand-900">
+        Плоская Земля: доводы и контр-доводы
+      </h1>
+      <p class="mt-4 text-sand-600">
+        Собрание аргументов плоскоземельщиков и контр-аргументов к ним.
+      </p>
+    </header>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      <a
+        href={`${base}light/`}
+        class="group rounded-2xl border border-sand-300 bg-sand-100 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      >
+        <span class="text-3xl" aria-hidden="true">☀️</span>
+        <h2 class="mt-3 font-display text-2xl font-bold text-sand-900">Светлая сторона</h2>
+        <p class="mt-2 text-sm text-sand-700">
+          Доводы плоскоземельщиков — и научные контр-аргументы к каждому из них.
+        </p>
+        <span class="mt-4 inline-block text-sm font-semibold text-clay-500 group-hover:underline">
+          Открыть →
+        </span>
+      </a>
+
+      <a
+        href={`${base}dark/`}
+        class="group rounded-2xl border border-sand-700 bg-sand-900 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      >
+        <span class="text-3xl" aria-hidden="true">🌑</span>
+        <h2 class="mt-3 font-display text-2xl font-bold text-sand-100">Тёмная сторона</h2>
+        <p class="mt-2 text-sm text-sand-400">
+          Аргументы против научных доводов — и ответы на них, если захотите.
+        </p>
+        <span class="mt-4 inline-block text-sm font-semibold text-clay-300 group-hover:underline">
+          Открыть →
+        </span>
+      </a>
+    </div>
+
+    <footer class="mt-16 border-t border-sand-300 pt-6 text-center text-xs text-sand-500">
+      Аргументы добавляются как Markdown-файлы — см. README.
+    </footer>
+  </main>
+</BaseLayout>

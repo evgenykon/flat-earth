@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Accordion from '../components/Accordion.astro';
+
+const base = import.meta.env.BASE_URL;
+const entries = (await getCollection('light')).sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
+);
+
+const THEME_ORDER = [
+  'Вода',
+  'Горизонт',
+  'Вращение',
+  'Гравитация',
+  'Космос',
+  'Навигация',
+  'Полюса и Антарктида',
+  'Затмения',
+  'Приливы',
+  'Звёзды',
+  'Фазы Луны',
+  'Солнце и Луна',
+  'Солнце и сезоны',
+  'Писание',
+  'Прочее',
+];
+
+const groups = THEME_ORDER.map((name) => ({
+  name,
+  items: entries.filter((e) => e.data.category === name),
+})).filter((g) => g.items.length > 0);
+---
+
+<BaseLayout title="Светлая сторона — Плоская Земля">
+  <div class="min-h-screen bg-sand-100 text-sand-900">
+    <main class="mx-auto max-w-3xl px-6 py-14">
+      <header class="mb-10">
+        <a href={base} class="text-sm text-sand-600 hover:underline">← На главную</a>
+        <h1 class="mt-3 font-display text-3xl font-bold">Светлая сторона</h1>
+        <p class="mt-2 text-sand-600">
+          Доводы плоскоземельщиков из книг. Разверните блок — увидите цитату и научное опровержение.
+        </p>
+      </header>
+
+      <div class="flex flex-col gap-4">
+        {groups.map(async (group) => (
+          <section class="mt-12">
+            <h2 class="mb-4 border-b-2 border-sand-300 pb-2 font-display text-xl font-bold">
+              {group.name}
+            </h2>
+            <div class="flex flex-col gap-4">
+              {group.items.map(async (entry) => {
+                const { Content } = await render(entry);
+                return (
+                  <Accordion
+                    title={entry.data.title}
+                    claim={entry.data.claim}
+                    argument={entry.data.argument}
+                  >
+                    <Content />
+                  </Accordion>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {entries.length === 0 && (
+        <p class="rounded-xl border border-sand-300 bg-sand-50 p-6 text-sand-600">
+          Пока нет аргументов. Добавьте Markdown-файл в <code>src/content/light/</code>.
+        </p>
+      )}
+    </main>
+  </div>
+</BaseLayout>
