@@ -6,14 +6,42 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout title="Плоская Земля: доводы и контр-доводы">
   <main class="mx-auto max-w-3xl px-6 py-16">
-    <header class="text-center">
-      <p class="text-sm uppercase tracking-widest text-clay-500">Архив споров</p>
-      <h1 class="mt-2 font-display text-4xl font-bold text-sand-900">
-        Плоская Земля: доводы и контр-доводы
-      </h1>
-      <p class="mt-4 text-sand-600">
-        Собрание аргументов плоскоземельщиков и контр-аргументов к ним.
-      </p>
+    <header
+      class="relative overflow-hidden rounded-3xl border border-sand-300 bg-gradient-to-b from-sand-100 to-sand-200 px-6 py-16 text-center shadow-sm"
+    >
+      <div
+        class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full border-2 border-dashed border-sand-400/60"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full bg-sand-300/60"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute -right-20 -bottom-20 h-80 w-80 rounded-full border-2 border-dashed border-sand-400/50"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute right-8 top-8 h-14 w-14 rounded-full bg-gradient-to-br from-clay-300 to-clay-500 opacity-90 shadow-lg"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute bottom-12 right-24 h-9 w-9 rounded-full bg-sand-400/70"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute bottom-10 left-10 h-12 w-12 rounded-full border border-sand-500/40"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative">
+        <h1 class="font-display text-5xl font-bold tracking-tight text-sand-900 sm:text-6xl">
+          Плоская Земля
+        </h1>
+        <p class="mt-4 font-display text-xl text-sand-700 sm:text-2xl">
+          Архив доводов и контр-доводов
+        </p>
+      </div>
     </header>
 
     <div class="mt-12 grid gap-6 sm:grid-cols-2">
